@@ -18,9 +18,6 @@ int16_t ypos = 0;
 #include <TFT_eSPI.h>              // Hardware-specific library
 TFT_eSPI tft = TFT_eSPI();         // Invoke custom library
 
-//====================================================================================
-//                                    Setup
-//====================================================================================
 void setup()
 {
   Serial.begin(115200);
@@ -33,9 +30,6 @@ void setup()
   Serial.println("\r\nInitialisation done.");
 }
 
-//====================================================================================
-//                                    Loop
-//====================================================================================
 void loop()
 {
   int16_t rc = png.openFLASH((uint8_t *)panda_png, sizeof(panda_png), pngDraw);
@@ -49,10 +43,7 @@ void loop()
     tft.endWrite();
     // png.close(); // not needed for memory->memory decode
   }
-  delay(3000);
-  tft.fillScreen(random(0x10000));
 }
-
 
 //=========================================v==========================================
 //                                      pngDraw
@@ -61,6 +52,7 @@ void loop()
 // render each image line to the TFT.  If you use a different TFT library
 // you will need to adapt this function to suit.
 // Callback function to draw pixels to the display
+
 void pngDraw(PNGDRAW *pDraw) {
   uint16_t lineBuffer[MAX_IMAGE_WDITH];
   png.getLineAsRGB565(pDraw, lineBuffer, PNG_RGB565_BIG_ENDIAN, 0xffffffff);
