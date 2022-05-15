@@ -28,7 +28,10 @@ void loop()
     double allSeconds = (double)millis()/1000;
     double deltaSeconds = allSeconds - oldSeconds;
 
+    if(deltaSeconds != 0)
+    {
     Serial.println(deltaSeconds);
+    }
 
     oldSeconds = allSeconds;
 }
