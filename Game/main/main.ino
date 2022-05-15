@@ -13,6 +13,7 @@ int8_t SquareXSize = screenXSize / screenDXSize;
 
 void setup()
 {
+  Serial.begin(9600);
     tft.init();
     tft.setRotation(2);
     tft.fillScreen(TFT_BLACK);
