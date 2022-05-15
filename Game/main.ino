@@ -21,5 +21,7 @@ void setup()
 void loop()
 {
     unsigned long runMicros = millis();
-    unsigned double allSeconds = millis()/1000;
+    double allSeconds = (double)millis()/1000;
+
+    Serial.println(allSeconds);
 }
