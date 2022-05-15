@@ -2,15 +2,26 @@
 
 TFT_eSPI tft = TFT_eSPI();
 
+int8_t screenYSize = 240;
+int8_t screenXSize = 240;
+
+int8_t screenDYSize = 20;
+int8_t screenDXSize = 20;
+
+int8_t SquareYSize = screenYSize / screenDYSize;
+int8_t SquareXSize = screenXSize / screenDXSize;
+
 void setup()
 {
     tft.init();
-    tft.fillScreen(TFT_BLACK);
     tft.setRotation(2);
-    tft.fillRect(50, 50, 25, 25, TFT_GREEN);
+    tft.fillScreen(TFT_BLACK);
 }
 
 void loop()
 {
+    unsigned long runMicros = millis();
+    double allSeconds = (double)millis()/1000;
 
+    Serial.println(allSeconds);
 }
