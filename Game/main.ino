@@ -16,18 +16,10 @@ void setup()
     tft.init();
     tft.setRotation(2);
     tft.fillScreen(TFT_BLACK);
-    tft.fillRect(25, 25, 25, 25, TFT_GREEN);
 }
 
 void loop()
 {
-    for (int8_t y = 0; y < screenDYSize; y++)
-    {
-        for(int8_t x = 0; x < screenDXSize; x++)
-        {
-            tft.fillRect(SquareYSize * y + 1, SquareXSize * x + 1, SquareYSize - 1, SquareXSize - 1, TFT_GREEN);
-        }
-    }
-
-    delay(250);
+    unsigned long runMicros = millis();
+    unsigned double allSeconds = millis()/1000;
 }
