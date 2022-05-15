@@ -20,18 +20,22 @@ void setup()
 }
 
 int direction = 1;
-double oldSeconds = 0;
-double allSeconds = 0;
+float oldSeconds = 0;
+float allSeconds = 0;
+
+int konum = 0;
+float speed = 12.0f;
 
 void loop()
 {
-    double allSeconds = (double)millis()/1000;
-    double deltaSeconds = allSeconds - oldSeconds;
+    float allSeconds = (float)millis()/1000;
+    float deltaSeconds = allSeconds - oldSeconds;
 
-    if(deltaSeconds != 0)
-    {
     Serial.println(deltaSeconds);
-    }
+
+    konum = konum + (speed * deltaSeconds);
+
+    tft.fillRect(120, konum, 25, 25, TFT_GREEN);
 
     oldSeconds = allSeconds;
 }
