@@ -29,4 +29,6 @@ void loop()
     double deltaSeconds = allSeconds - oldSeconds;
 
     Serial.println(deltaSeconds);
+
+    oldSeconds = allSeconds;
 }
