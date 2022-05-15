@@ -23,11 +23,13 @@ int direction = 1;
 float oldSeconds = 0;
 float allSeconds = 0;
 
-int konum = 0;
+float konum = 0;
 float speed = 12.0f;
 
 void loop()
 {
+    tft.fillScreen(TFT_BLACK);
+    
     float allSeconds = (float)millis()/1000;
     float deltaSeconds = allSeconds - oldSeconds;
 
@@ -35,7 +37,7 @@ void loop()
 
     konum = konum + (speed * deltaSeconds);
 
-    tft.fillRect(120, konum, 25, 25, TFT_GREEN);
+    tft.fillRect(120, (int)konum, 25, 25, TFT_GREEN);
 
     oldSeconds = allSeconds;
 }
